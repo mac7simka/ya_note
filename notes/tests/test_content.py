@@ -1,10 +1,8 @@
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
-
 from notes.forms import NoteForm
 from notes.models import Note
-
 
 User = get_user_model()
 
@@ -39,8 +37,3 @@ class TestNotes(TestCase):
         response = self.client.get(self.add_url)
         self.assertIn('form', response.context)
         self.assertIsInstance(response.context['form'], NoteForm)
-
-    #def test_client_has_form(self):
-    #    """Hа страницы создания и редактирования заметки передаются формы."""
-    #    response = self.client.get('notes:add')
-    #    self.assertNotIn('form', response.context)
